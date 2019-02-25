@@ -1,15 +1,28 @@
 package com.max.springmvc.restful.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 import java.util.Date;
 import java.util.Objects;
 
 public class EmployeeVO {
 
+	@NotEmpty
 	private String empId;
+	@NotEmpty
 	private String name;
 	private Integer age;
 	private DepartmentVO department;
 	private String gender;
+
+	@NumberFormat(pattern = "#,###,###.#")
+	private Float salary;
+
+	@Past	//之前的時間
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 
 
@@ -22,7 +35,17 @@ public class EmployeeVO {
 				", department=" + department +
 				", gender='" + gender + '\'' +
 				", birth=" + birth +
+				", salary=" + salary +
 				'}';
+	}
+
+	public Float getSalary() {
+		return salary;
+	}
+
+	public EmployeeVO() {
+
+
 	}
 
 	public EmployeeVO(String empId, String name, Integer age, String gender, DepartmentVO department) {
@@ -34,6 +57,21 @@ public class EmployeeVO {
 		this.gender = gender;
 	}
 
+	public void setSalary(Float salary) {
+		this.salary = salary;
+	}
+
+	public EmployeeVO(String empId, String name, Integer age, String gender, DepartmentVO department,Date birth,Float salary) {
+		super();
+		this.empId = empId;
+		this.name = name;
+		this.age = age;
+		this.department = department;
+		this.gender = gender;
+		this.birth = birth;
+		this.salary = salary;
+	}
+
 	public Date getBirth() {
 		return birth;
 	}
@@ -42,11 +80,6 @@ public class EmployeeVO {
 		this.birth = birth;
 	}
 
-
-	public EmployeeVO() {
-
-
-	}
 
 	public String getGender() {
 		return gender;

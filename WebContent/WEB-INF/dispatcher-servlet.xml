@@ -27,6 +27,7 @@
 -->
 	<!--實際開發時使用，如果沒加，使用mvc:view-controller，會造成404 -->
 	<mvc:annotation-driven conversion-service="convertService"/>
+	<!--下面那行 <mvc:annotation-driven/>一定要加，而且必定寫在所有的annotation-driven的最下面-->
 
 	<!--處理靜態資源時使用，在MVC Context裡配好了，如果發現該請求是沒有經過映射的，就把該請求交給
 		預設的servlet來處理，如果不是靜態資源，才轉交給DispatcherServlet
@@ -34,11 +35,18 @@
 	<mvc:default-servlet-handler/>
 	<!--配置ConnvertService-->
 	<bean id="convertService"
-		  class="org.springframework.context.support.ConversionServiceFactoryBean">
+		  class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<set>
+				<!--既能使用自定義的轉換器，也能使用Spring提供的格式化工具-->
 				<ref bean="employeeConverter"/>
 			</set>
 		</property>
+	</bean>
+
+	<!--配置i8n文件-->
+	<bean id="messageSource"
+		  class="org.springframework.context.support.ResourceBundleMessageSource">
+		  <property name="basename" value="i18n"></property>
 	</bean>
 </beans>
