@@ -49,4 +49,7 @@
 		  class="org.springframework.context.support.ResourceBundleMessageSource">
 		  <property name="basename" value="i18n"></property>
 	</bean>
+	<!--視圖路徑搭配要去視圖的頁面-->
+	<mvc:view-controller path="/i18n" view-name="i18n"/>
+	<mvc:view-controller path="/i18n2" view-name="i18n2"/>
 </beans>
