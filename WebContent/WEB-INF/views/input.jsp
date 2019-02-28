@@ -1,7 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -12,27 +12,27 @@
 </head>
 <body>
 		<form action="testConversionServiceConverter" method="post">
-			¥[¤J¶¶§Ç¬°:rempId-name-age-department.name-gender
+			åŠ å…¥é †åºç‚º:rempId-name-age-department.name-gender
 			Employee:<input type="text" name="employee">
 			<input type="submit">
 		</form>
 		<br>
 		<br>
-		<!-- 1.¬°¦ó»İ­n¨Ï¥Îform¼ĞÅÒ ,¥i¥H§ó§Ö³tªº¶}µo¥Xªí³æ­¶­±¡A¥i¥H§ó¤è«Kªº¶i¦æªí³æ­Èªº¦^¶ÇÅã¥Ü
-			 2.ª`·N:¥i¥H³q¹LModelAttributeªºÄİ©Ê«ü©w¸j©wªº¼Ò«¬Äİ©Ê¡A­Y¨S¦³«ü©w¸ÓÄİ©Ê¡A«hÀq»{±qrequest¸ÌÅª¨úcommand
-			 ªºªí³æbean¡A¦pªG¸ÓÄİ©Ê­È¤]¤£¦s¦b¡A´N·|µo¥Í¿ù»~
+		<!-- 1.ç‚ºä½•éœ€è¦ä½¿ç”¨formæ¨™ç±¤ ,å¯ä»¥æ›´å¿«é€Ÿçš„é–‹ç™¼å‡ºè¡¨å–®é é¢ï¼Œå¯ä»¥æ›´æ–¹ä¾¿çš„é€²è¡Œè¡¨å–®å€¼çš„å›å‚³é¡¯ç¤º
+			 2.æ³¨æ„:å¯ä»¥é€šéModelAttributeçš„å±¬æ€§æŒ‡å®šç¶å®šçš„æ¨¡å‹å±¬æ€§ï¼Œè‹¥æ²’æœ‰æŒ‡å®šè©²å±¬æ€§ï¼Œå‰‡é»˜èªå¾requestè£¡è®€å–command
+			 çš„è¡¨å–®beanï¼Œå¦‚æœè©²å±¬æ€§å€¼ä¹Ÿä¸å­˜åœ¨ï¼Œå°±æœƒç™¼ç”ŸéŒ¯èª¤
 		-->
 		<form:form action="${pageContext.request.contextPath}/emp" method="post" modelAttribute="employee">
-		<!--pathÄİ©Ê¹ïÀ³formªí³æªºnameÄİ©Ê¡A¦Ópath¦P®É¤]¬O¬M®g¨ìª«¥óªºÄİ©Ê¡A¬Gpathªº¦WºÙ­n»Pª«¥ó¦WºÙÄİ©Ê¬Û¦P -->
+		<!--pathå±¬æ€§å°æ‡‰formè¡¨å–®çš„nameå±¬æ€§ï¼Œè€ŒpathåŒæ™‚ä¹Ÿæ˜¯æ˜ å°„åˆ°ç‰©ä»¶çš„å±¬æ€§ï¼Œæ•…pathçš„åç¨±è¦èˆ‡ç‰©ä»¶åç¨±å±¬æ€§ç›¸åŒ -->
 
-			<%--Åã¥Ü©Ò¦³ªº¿ù»~®ø®§			--%>
+			<%--é¡¯ç¤ºæ‰€æœ‰çš„éŒ¯èª¤æ¶ˆæ¯			--%>
 			<form:errors path="*"></form:errors>
 			<br>
 
 			<c:if test="${employee.empId != null}">
 				<form:hidden path="empId"/>
 
-					<%--¹ï©ó_method¤£¯à¥Îspringªºform¼ĞÅÒ form:hidden¡A¦]¬°modelAttribute¹ïÀ³ªºbean¤¤¨S¦³_method³o­ÓÄİ©Ê
+					<%--å°æ–¼_methodä¸èƒ½ç”¨springçš„formæ¨™ç±¤ form:hiddenï¼Œå› ç‚ºmodelAttributeå°æ‡‰çš„beanä¸­æ²’æœ‰_methodé€™å€‹å±¬æ€§
 						<form:hidden path="_method" value="put"/>
 					--%>
 				<input type="hidden" name="_method" value="put"/>
@@ -50,33 +50,33 @@
 			%>
 			gender:<form:radiobuttons path="gender" items="${genders}"/>
 			<br>
-			ID:<form:input path="empId"/><!--­û¤uªºID -->
+			ID:<form:input path="empId"/><!--å“¡å·¥çš„ID -->
 			<form:errors path="empId"></form:errors>
 			<br>
-			<!--¹ïÀ³¨ìhtmlªºselect¡A items³¡ªùªº¶°¦X¡AitemLabel¹ïÀ³¨ìhtml select©³¤Uªºoption-->
+			<!--å°æ‡‰åˆ°htmlçš„selectï¼Œ itemséƒ¨é–€çš„é›†åˆï¼ŒitemLabelå°æ‡‰åˆ°html selectåº•ä¸‹çš„option-->
 			department<form:select path="department.depId" items="${departments}"
 			itemLabel="departmentName" itemValue="depId"/>
 			<br>
 			<!--
-				1.¸ê®ÆDateÂà¦r¦êªº°İÃD
-				2.¸ê®Æ®æ¦¡¤Æªº°İÃD
-				3.¼Æ¾Ú®ÕÅçªº°İÃD
-				a.¦p¦ó®ÕÅç?µù¸Ñ?
-				  ¨Ï¥ÎJSR303ÅçÃÒ¼Ğ·Ç
-				  »İ¥[¤Jhibernate validatorÅçÃÒ®Ø¬[ªºjar
-				  »İ¦bSpringMVC °t¸m<mvc:annotation-driven>
-				  »İ­n¦bbeanªºÄİ©Ê¤W²K¥[¹ïÀ³ªºµù¸Ñ
-				  ¦b¥Ø¼Ğ¤èªkbeanÃş«¬ªº«e­±²K¥[@validµù¸Ñ
-				b.ÅçÃÒ¥X¿ù¡AÂà¦V¨ì­ş¤@­Ó­¶­±?
-			      ª`·N:»İ®ÕÅçªºbean¹ï¶H©M¨ä¸j©wµ²ªGªº¹ï¶H©Î¿ù»~¹ï¶H®É¦¨¹ï¥X²{ªº¡A¥L­Ì¤§¶¡¤£¤¹³\¨ä¥Lªº¤J°Ñ
-				c.¿ù»~®ø®§?¦p¦óÅã¥Ü¡A¦p¦ó§â¿ù»~®ø®§¶i¦æ°ê»Ú¤Æ
+				1.è³‡æ–™Dateè½‰å­—ä¸²çš„å•é¡Œ
+				2.è³‡æ–™æ ¼å¼åŒ–çš„å•é¡Œ
+				3.æ•¸æ“šæ ¡é©—çš„å•é¡Œ
+				a.å¦‚ä½•æ ¡é©—?è¨»è§£?
+				  ä½¿ç”¨JSR303é©—è­‰æ¨™æº–
+				  éœ€åŠ å…¥hibernate validatoré©—è­‰æ¡†æ¶çš„jar
+				  éœ€åœ¨SpringMVC é…ç½®<mvc:annotation-driven>
+				  éœ€è¦åœ¨beançš„å±¬æ€§ä¸Šæ·»åŠ å°æ‡‰çš„è¨»è§£
+				  åœ¨ç›®æ¨™æ–¹æ³•beané¡å‹çš„å‰é¢æ·»åŠ @validè¨»è§£
+				b.é©—è­‰å‡ºéŒ¯ï¼Œè½‰å‘åˆ°å“ªä¸€å€‹é é¢?
+			      æ³¨æ„:éœ€æ ¡é©—çš„beanå°è±¡å’Œå…¶ç¶å®šçµæœçš„å°è±¡æˆ–éŒ¯èª¤å°è±¡æ™‚æˆå°å‡ºç¾çš„ï¼Œä»–å€‘ä¹‹é–“ä¸å…è¨±å…¶ä»–çš„å…¥åƒ
+				c.éŒ¯èª¤æ¶ˆæ¯?å¦‚ä½•é¡¯ç¤ºï¼Œå¦‚ä½•æŠŠéŒ¯èª¤æ¶ˆæ¯é€²è¡Œåœ‹éš›åŒ–
 
 
 			-->
-			Birthday:<form:input path="birth"/><!--­û¤uªº¥Í¤é -->
+			Birthday:<form:input path="birth"/><!--å“¡å·¥çš„ç”Ÿæ—¥ -->
 			<form:errors path="birth"></form:errors>
 			<br>
-			Salary:<form:input path="salary"/><!--­û¤uªº¥Í¤é -->
+			Salary:<form:input path="salary"/><!--å“¡å·¥çš„ç”Ÿæ—¥ -->
 			<form:errors path="salary"></form:errors>
 			<br>
 			<input type="submit">

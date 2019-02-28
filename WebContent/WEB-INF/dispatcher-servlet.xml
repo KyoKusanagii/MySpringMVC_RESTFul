@@ -44,6 +44,21 @@
 		</property>
 	</bean>
 
+    <!--配置SessionLocaleResolver-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+
+	<mvc:interceptors>
+		<!--配置LocaleChangeInterceptor-->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+		<!--配置攔截器(不)作用的路徑-->
+		<mvc:interceptor>
+			<!--只有進到/emps的路徑會呼叫SecondtInterceptor類別執行裡面的攔截器-->
+			<mvc:mapping path="/emps"/>
+			<bean class="com.max.springmvc.interceptors.SecondtInterceptor"/>
+		</mvc:interceptor>
+		<!--配置自定義的攔截器-->
+		<bean class="com.max.springmvc.interceptors.FirstInterceptor"></bean>
+    </mvc:interceptors>
 	<!--配置i8n文件-->
 	<bean id="messageSource"
 		  class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -52,4 +67,10 @@
 	<!--視圖路徑搭配要去視圖的頁面-->
 	<mvc:view-controller path="/i18n" view-name="i18n"/>
 	<mvc:view-controller path="/i18n2" view-name="i18n2"/>
+
+	<!--配置MutipartResolver-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="maxUploadSize" value="102400"/>
+	</bean>
 </beans>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 </script>
 <script>
 	$(function () {
-		console.log("jQueryÀò¨ú¦¨¥\");
+		console.log("jQueryç²å–æˆåŠŸ");
 		$(".delete").click(function () {
 			$("form").attr("action", $(this).attr("href")).submit();
 			return false;
@@ -21,31 +21,31 @@
 	});
 </script>
 	<!--
-		1.SpringMVC³B²zÀRºA¸ê·½¡A
-		Àu¶®ªºREST­·®æ¤£§Æ±æ«áºó¦³html¡Bdoµ¥µ¥ªº«áºó¡A­Y±NDispatcherServlet½Ð¨D³]¸m¬°/¡A«h
-		SpringMVC±N®·ÀòWEB®e¾¹ªº©Ò¦³½Ð¨D¡A¥]¬AÀRºA¸ê·½ªº½Ð¨D¡ASpringMVC·|·í¦¨¤@­Ó´¶³q½Ð¨D¨Ó³B²z
-		¡A¦]§ä¤£¨ì¹ïÀ³³B²z®e¾¹±N¾É­P¿ù»~
-		2.¸Ñ¨M¤èªk:¦bSpringMVCªº°t¸m¤å¥ó¤¤¡A°t¸m
-		<mvc:default-servlet-handler/>¸Ñ¨MÀRºA¸ê·½ªº°ÝÃD
+		1.SpringMVCè™•ç†éœæ…‹è³‡æºï¼Œ
+		å„ªé›…çš„RESTé¢¨æ ¼ä¸å¸Œæœ›å¾Œç¶´æœ‰htmlã€doç­‰ç­‰çš„å¾Œç¶´ï¼Œè‹¥å°‡DispatcherServletè«‹æ±‚è¨­ç½®ç‚º/ï¼Œå‰‡
+		SpringMVCå°‡æ•ç²WEBå®¹å™¨çš„æ‰€æœ‰è«‹æ±‚ï¼ŒåŒ…æ‹¬éœæ…‹è³‡æºçš„è«‹æ±‚ï¼ŒSpringMVCæœƒç•¶æˆä¸€å€‹æ™®é€šè«‹æ±‚ä¾†è™•ç†
+		ï¼Œå› æ‰¾ä¸åˆ°å°æ‡‰è™•ç†å®¹å™¨å°‡å°Žè‡´éŒ¯èª¤
+		2.è§£æ±ºæ–¹æ³•:åœ¨SpringMVCçš„é…ç½®æ–‡ä»¶ä¸­ï¼Œé…ç½®
+		<mvc:default-servlet-handler/>è§£æ±ºéœæ…‹è³‡æºçš„å•é¡Œ
 	-->
 </head>
 <body>
 
 	<form action="" method="post">
-		<%--­n¨Ï¥ÎHttpHiddenFileter,§âpost½Ð¨DÂà¦¨delete½Ð¨D ´N¬O³o¼Ëªº©T©w¼gªk--%>
+		<%--è¦ä½¿ç”¨HttpHiddenFileter,æŠŠpostè«‹æ±‚è½‰æˆdeleteè«‹æ±‚ å°±æ˜¯é€™æ¨£çš„å›ºå®šå¯«æ³•--%>
 		<input type="hidden" name="_method" value="delete">
 	</form>
-	<c:if test="${empty requestScope.employee}">¨S¦³¥ô¦ó­û¤u°T®§</c:if>
+	<c:if test="${empty requestScope.employee}">æ²’æœ‰ä»»ä½•å“¡å·¥è¨Šæ¯</c:if>
 	<c:if test="${!empty requestScope.employee}">
 		<table border="1" cellpadding="10" cellspacing="0">
 			<tr>
-				<th>­û¤u½s¸¹</th>
-				<th>­û¤u©m¦W</th>
-				<th>­û¤u¦~ÄÖ</th>
-				<th>­û¤u³¡ªù¦WºÙ</th>
-				<th>­û¤u³¡ªù½s¸¹</th>
-				<th>½s¿è</th>
-				<th>§R°£</th>
+				<th>å“¡å·¥ç·¨è™Ÿ</th>
+				<th>å“¡å·¥å§“å</th>
+				<th>å“¡å·¥å¹´é½¡</th>
+				<th>å“¡å·¥éƒ¨é–€åç¨±</th>
+				<th>å“¡å·¥éƒ¨é–€ç·¨è™Ÿ</th>
+				<th>ç·¨è¼¯</th>
+				<th>åˆªé™¤</th>
 			</tr>
 			<c:forEach items="${requestScope.employee}" var="emp">
 				<tr>
@@ -54,8 +54,8 @@
 					<td>${emp.age}</td>
 					<td>${emp.department.departmentName}</td>
 					<td>${emp.department.depId}</td>
-					<td><a href="emp/${emp.empId}">½s¿è</a></td>
-					<td><a class="delete" href="emp/${emp.empId}">§R°£</a></td>
+					<td><a href="emp/${emp.empId}">ç·¨è¼¯</a></td>
+					<td><a class="delete" href="emp/${emp.empId}">åˆªé™¤</a></td>
 				</tr>
 			</c:forEach>
 		</table>

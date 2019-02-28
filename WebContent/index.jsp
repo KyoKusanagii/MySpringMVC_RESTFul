@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -31,29 +31,38 @@
 </script>
 </head>
 <body>
-	<a href="<%=request.getContextPath()%>/emps">¨q¥X¥ş³¡­û¤u</a>
+	<a href="<%=request.getContextPath()%>/emps">ç§€å‡ºå…¨éƒ¨å“¡å·¥</a>
 	<br><br>
-	<a href="testJson" id="testJson">´ú¸ÕJSON</a>
+	<a href="testJson" id="testJson">æ¸¬è©¦JSON</a>
 	<br><br>
+	<p>testHttpMessageConverter</p>
 	<form action="testHttpMessageConverter" method="post" enctype="multipart/form-data">
-		ÀÉ®×:<input type="file" name="file">
-		´y­z:<input type="text" name="desc">
+		æª”æ¡ˆ:<input type="file" name="file">
+		æè¿°:<input type="text" name="desc">
 		<input type="submit">
 	</form>
 	<br><br>
-	<a href="testResponseEntity">´ú¸ÕResponseEntity</a>
+	<a href="testResponseEntity">æ¸¬è©¦ResponseEntity</a>
+
+	<p>testFileUpload</p>
+	<form action="testFileUpload " method="post" enctype="multipart/form-data">
+		æª”æ¡ˆ:<input type="file" name="file">
+		æè¿°:<input type="text" name="desc">
+		<input type="submit">
+	</form>
+	<br><br>
 
 	<!--
-		Ãö©ó°ê»Ú¤Æ:
-		1.¦b­¶­±¤W¯à°÷®Ú¾ÚÂsÄı¾¹»y¨¥³]¸mªº±¡ªp¹ï¤å¥»(¤£¬O¤º®e)¡A®É¶¡¡B¼Æ­È¶i¦æ¥»¦a¤Æ³B²z
-		2.¥i¥H¦bbean¤¤Àò¨ú°ê»Ú¤Æ¸ê·½¤å¥ólocale¹ïÀ³ªº®ø®§
-		3.¥i¥H³z¹L¶W³sµ²¤Á´«locale¡A¦Ó¤£¦A¨Ì¿à©óÂsÄı¾¹ªº»y¨¥³]¸m±¡ªp
+		é—œæ–¼åœ‹éš›åŒ–:
+		1.åœ¨é é¢ä¸Šèƒ½å¤ æ ¹æ“šç€è¦½å™¨èªè¨€è¨­ç½®çš„æƒ…æ³å°æ–‡æœ¬(ä¸æ˜¯å…§å®¹)ï¼Œæ™‚é–“ã€æ•¸å€¼é€²è¡Œæœ¬åœ°åŒ–è™•ç†
+		2.å¯ä»¥åœ¨beanä¸­ç²å–åœ‹éš›åŒ–è³‡æºæ–‡ä»¶localeå°æ‡‰çš„æ¶ˆæ¯
+		3.å¯ä»¥é€éè¶…é€£çµåˆ‡æ›localeï¼Œè€Œä¸å†ä¾è³´æ–¼ç€è¦½å™¨çš„èªè¨€è¨­ç½®æƒ…æ³
 
-		¸Ñ¨M:
-		1.¨Ï¥ÎJSTLªºfmt¼ĞÅÒ¸Ñ¨M
-		2.¦bbean¤¤ª`¤JResourceBundleMessageSourceªº¹ê¨Ò¡A¨Ï¥Î¨ä¹ïÀ³ªºgetMessage¤èªk§Y¥i
-		3.°t¸mLocaleResolver©MLocaleChangeInterceptor
+		è§£æ±º:
+		1.ä½¿ç”¨JSTLçš„fmtæ¨™ç±¤è§£æ±º
+		2.åœ¨beanä¸­æ³¨å…¥ResourceBundleMessageSourceçš„å¯¦ä¾‹ï¼Œä½¿ç”¨å…¶å°æ‡‰çš„getMessageæ–¹æ³•å³å¯
+		3.é…ç½®LocaleResolverå’ŒLocaleChangeInterceptor
 	-->
-	<a href="i18n">i18n ­¶­±</a>
+	<a href="i18n">i18n é é¢</a>
 </body>
 </html>
