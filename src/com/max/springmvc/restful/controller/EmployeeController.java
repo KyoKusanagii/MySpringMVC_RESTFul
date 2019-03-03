@@ -41,7 +41,7 @@ public class EmployeeController {
 
 	@RequestMapping(value="/emp",method = RequestMethod.PUT)
 	public String update(@ModelAttribute(value = "emoloyee") EmployeeVO emp){
-		//«ü©wempªº­È¬O±qmodelAttributeªºmapªºemployee³o­Ókeyªº­È¡A³Q¼Ğ°OmodelAttributeªº°Ñ¼Æ¡A³£·|±qmodel¸Ì§ä³o­Óª«¥ó¡A¨S§ä¨ì´N¹ê¨Ò¤Æ
+		//æŒ‡å®šempçš„å€¼æ˜¯å¾modelAttributeçš„mapçš„employeeé€™å€‹keyçš„å€¼ï¼Œè¢«æ¨™è¨˜modelAttributeçš„åƒæ•¸ï¼Œéƒ½æœƒå¾modelè£¡æ‰¾é€™å€‹ç‰©ä»¶ï¼Œæ²’æ‰¾åˆ°å°±å¯¦ä¾‹åŒ–
 		emdao.save(emp);
 		return "redirect:/emps";
 	}
@@ -57,15 +57,15 @@ public class EmployeeController {
 	public String save(@Valid EmployeeVO emp, Errors result, Map<String,Object> map) {
 		String depId = emp.getDepartment().getDepId();
 		emp.setDepartment(new DepartmentVO(depId,demap.departmentMapping(depId)));
-		System.out.println("·s¼Wªº­û¤u¸ê°T¬° = " + emp.toString());
+		System.out.println("æ–°å¢çš„å“¡å·¥è³‡è¨Šç‚º = " + emp.toString());
 
 
 		if(result.getErrorCount() > 0){
-			System.out.println("¥X¿ù¤F!");
+			System.out.println("å‡ºéŒ¯äº†!");
 			for(FieldError error : result.getFieldErrors()){
 				System.out.println(error.getField() + ":" +  error.getDefaultMessage());
 			}
-			//­YÅçÃÒ¥X¿ù¡AÂà¦V¦Û­q­¶­±
+			//è‹¥é©—è­‰å‡ºéŒ¯ï¼Œè½‰å‘è‡ªè¨‚é é¢
 			map.put("employee", emp);
 			return "input";
 		}
@@ -73,7 +73,7 @@ public class EmployeeController {
 		return "redirect:/emps";
 	}
 
-	@RequestMapping(value="/emp/{id}",method=RequestMethod.GET)	//¦³PathVariableªºinputªº¤èªk¡A¤£¯à»P¤U­±ªºintput¤èªk¦@¥Î
+	@RequestMapping(value="/emp/{id}",method=RequestMethod.GET)	//æœ‰PathVariableçš„inputçš„æ–¹æ³•ï¼Œä¸èƒ½èˆ‡ä¸‹é¢çš„intputæ–¹æ³•å…±ç”¨
 	public String input(@PathVariable("id") String id ,Map<String , Object> map) {
 		map.put("employee",emdao.get(id));
 		map.put("departments", dedao.getAll());
@@ -93,7 +93,7 @@ public class EmployeeController {
 		return "list";
 	}
 
-	//·s¼Wª«¥óªº®É­Ô¡A¸ÓÄİ©Ê¤£·s¼W¡A¦page´N¤£·s¼W
+	//æ–°å¢ç‰©ä»¶çš„æ™‚å€™ï¼Œè©²å±¬æ€§ä¸æ–°å¢ï¼Œå¦‚ageå°±ä¸æ–°å¢
 //	@InitBinder
 //	public void initBinder(WebDataBinder binder){
 //		binder.setDisallowedFields("age");
