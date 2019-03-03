@@ -64,5 +64,13 @@
 		3.配置LocaleResolver和LocaleChangeInterceptor
 	-->
 	<a href="i18n">i18n 頁面</a>
+	<br><br>
+	<a href="testExceptionHandlerExceptionResolver?i=10">測試ExceptionHandlerExceptionResolver</a>
+	<br><br>
+	<a href="testResponseStatusExceptionResolver?i=10">測試ResponseStatusExceptionResolver</a>
+	<br><br>
+	<a href="testDefaultHandlerExceptionResolver?i=10">測試DefaultHandlerExceptionResolver</a>
+	<br><br>
+	<a href="testSimpleMappingExceptionResolver?i=2">測試SimpleMappingExceptionResolver</a>
 </body>
 </html>
