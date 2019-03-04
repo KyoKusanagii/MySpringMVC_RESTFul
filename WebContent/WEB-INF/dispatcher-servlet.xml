@@ -75,9 +75,12 @@
 	</bean>
 
 	<!--配置使用SimpleMappginExceptionResolver來映射異常-->
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">	
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<!--把默認的key = exception改成key = ex-->
+		<property name="exceptionAttribute" value="ex"></property>
 		<property name="exceptionMappings">
 			<props>
+				<!--出現怎樣的例外時轉到什麼頁面-->
 				<prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
 			</props>
 		</property>
